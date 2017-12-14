@@ -1,13 +1,19 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
- 
-i = int(raw_input('净利润:'))
-arr = [1000000,600000,400000,200000,100000,0]
-rat = [0.01,0.015,0.03,0.05,0.075,0.1]
-r = 0
-for idx in range(0,6):
-    if i>arr[idx]:
-        r+=(i-arr[idx])*rat[idx]
-        print (i-arr[idx])*rat[idx]
-        i=arr[idx]
-print r
+		
+def judge( i ):
+	j = 168/i
+	if(i>j and (i+j)%2==0 and (i-j)%2==0):
+		m = (i+j)/2
+		n = (i-j)/2
+		if ((m*m - n*n)==168):
+			x = n*n-100
+			print "x的直为：",x
+			return 1
+	
+	return 0
+
+for i in range(2,85):
+	if (judge(i) == 1):
+		print i
+	
